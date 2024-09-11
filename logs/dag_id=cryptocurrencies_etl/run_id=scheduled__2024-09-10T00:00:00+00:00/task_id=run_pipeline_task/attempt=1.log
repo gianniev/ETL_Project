@@ -1,0 +1,580 @@
+[2024-09-11T11:54:40.374+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T11:54:40.394+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T11:54:40.402+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T11:54:40.402+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T11:54:40.416+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T11:54:40.429+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=63) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T11:54:40.430+0000] {standard_task_runner.py:63} INFO - Started process 65 to run task
+[2024-09-11T11:54:40.431+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpd6emy4uy']
+[2024-09-11T11:54:40.434+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask run_pipeline_task
+[2024-09-11T11:54:40.520+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host e90ab63fed78
+[2024-09-11T11:54:40.715+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T11:54:40.716+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T11:54:40.767+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T11:54:40.768+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_etl.py", line 42, in execute_pipeline_task
+    return run_pipeline()
+           ^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/crypto_data.py", line 15, in run_pipeline
+    data = fetch_crypto_data()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/getData.py", line 27, in fetch_crypto_data
+    session = Session()
+              ^^^^^^^
+NameError: name 'Session' is not defined
+[2024-09-11T11:54:40.796+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T115440, end_date=20240911T115440
+[2024-09-11T11:54:40.820+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 11 for task run_pipeline_task (name 'Session' is not defined; 65)
+[2024-09-11T11:54:40.873+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-11T11:54:40.927+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T12:22:49.391+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:22:49.537+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:22:49.592+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:22:49.592+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T12:22:49.664+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T12:22:49.701+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=69) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:22:49.703+0000] {standard_task_runner.py:63} INFO - Started process 73 to run task
+[2024-09-11T12:22:49.711+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp5x6cgn6b']
+[2024-09-11T12:22:49.713+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T12:22:49.816+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 5d5990a4e51a
+[2024-09-11T12:22:49.951+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T12:22:49.955+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:22:51.175+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T12:22:51.186+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56862.437715  3.162126e+10
+1  1027     Ethereum    ETH        NaN   2333.826941  1.354103e+10
+2   825  Tether USDt   USDT        NaN      1.000088  4.757098e+10
+3  1839          BNB    BNB        NaN    516.500591  1.456968e+09
+4  5426       Solana    SOL        NaN    132.117575  1.879618e+09
+[2024-09-11T12:22:51.194+0000] {python.py:237} INFO - Done. Returned value was:          id                      name  ...         price     volume_24
+0         1                   Bitcoin  ...  56862.437715  3.162126e+10
+1      1027                  Ethereum  ...   2333.826941  1.354103e+10
+2       825               Tether USDt  ...      1.000088  4.757098e+10
+3      1839                       BNB  ...    516.500591  1.456968e+09
+4      5426                    Solana  ...    132.117575  1.879618e+09
+...     ...                       ...  ...           ...           ...
+1995  15388                     RIZON  ...      0.000180  1.790961e+02
+1996  15447                      Lyra  ...      0.000706  4.770372e+00
+1997  15889            Metaverse Face  ...      0.000043  5.425053e+03
+1998   6992          Spartan Protocol  ...      0.004510  5.363752e+03
+1999  16913  Millonarios FC Fan Token  ...      0.071754  0.000000e+00
+
+[2000 rows x 6 columns]
+[2024-09-11T12:22:51.217+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:22:51.363+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T122249, end_date=20240911T122251
+[2024-09-11T12:22:51.400+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T12:22:51.415+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T12:39:12.395+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:39:12.440+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:39:12.454+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:39:12.455+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T12:39:12.535+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T12:39:12.553+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=85) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:39:12.555+0000] {standard_task_runner.py:63} INFO - Started process 96 to run task
+[2024-09-11T12:39:12.557+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpv6cud2hs']
+[2024-09-11T12:39:12.559+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask run_pipeline_task
+[2024-09-11T12:39:12.654+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host b3f1516421b9
+[2024-09-11T12:39:12.791+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T12:39:12.793+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:39:14.369+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T12:39:14.379+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56514.274777  3.219715e+10
+1  1027     Ethereum    ETH        NaN   2322.830459  1.373820e+10
+2   825  Tether USDt   USDT        NaN      1.000133  4.823371e+10
+3  1839          BNB    BNB        NaN    516.123256  1.463453e+09
+4  5426       Solana    SOL        NaN    132.095137  1.915157e+09
+[2024-09-11T12:39:14.389+0000] {python.py:237} INFO - Done. Returned value was:          id            name symbol     marketcap         price     volume_24
+0         1         Bitcoin    BTC           NaN  56514.274777  3.219715e+10
+1      1027        Ethereum    ETH           NaN   2322.830459  1.373820e+10
+2       825     Tether USDt   USDT           NaN      1.000133  4.823371e+10
+3      1839             BNB    BNB           NaN    516.123256  1.463453e+09
+4      5426          Solana    SOL           NaN    132.095137  1.915157e+09
+...     ...             ...    ...           ...           ...           ...
+1995  15388           RIZON  ATOLO           NaN      0.000180  1.644261e+02
+1996  15744           Prism  PRISM  1.317377e+06      0.000718  1.067636e+02
+1997  15447            Lyra   LYRA  4.585973e+04      0.000706  4.785143e+00
+1998  31269          SolarX   SXCH           NaN      0.021902  1.297029e+06
+1999  15889  Metaverse Face   MEFA  4.085434e+05      0.000043  5.421683e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T12:39:14.413+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:39:14.522+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T123912, end_date=20240911T123914
+[2024-09-11T12:39:14.606+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T12:39:14.637+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T12:55:25.401+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:55:25.446+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:55:25.463+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T12:55:25.464+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T12:55:25.502+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T12:55:25.524+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:55:25.526+0000] {standard_task_runner.py:63} INFO - Started process 74 to run task
+[2024-09-11T12:55:25.534+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpeglxjxqc']
+[2024-09-11T12:55:25.536+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T12:55:25.611+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 45283a8215a9
+[2024-09-11T12:55:25.738+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T12:55:25.739+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:55:26.846+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T12:55:26.859+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56543.180639  3.265499e+10
+1  1027     Ethereum    ETH        NaN   2318.008764  1.387505e+10
+2   825  Tether USDt   USDT        NaN      0.999853  4.873667e+10
+3  1839          BNB    BNB        NaN    514.679103  1.467936e+09
+4  5426       Solana    SOL        NaN    131.339663  1.936894e+09
+[2024-09-11T12:55:26.865+0000] {python.py:237} INFO - Done. Returned value was:          id          name symbol     marketcap         price     volume_24
+0         1       Bitcoin    BTC           NaN  56543.180639  3.265499e+10
+1      1027      Ethereum    ETH           NaN   2318.008764  1.387505e+10
+2       825   Tether USDt   USDT           NaN      0.999853  4.873667e+10
+3      1839           BNB    BNB           NaN    514.679103  1.467936e+09
+4      5426        Solana    SOL           NaN    131.339663  1.936894e+09
+...     ...           ...    ...           ...           ...           ...
+1995  15744         Prism  PRISM  1.317377e+06      0.000718  1.067636e+02
+1996  28481         SELO+   SELO  4.143137e+05      0.006931  3.157668e+04
+1997  28748         ZELIX  ZELIX           NaN      0.000061  6.281980e+05
+1998   1107  PAC Protocol    PAC           NaN      0.000023  5.237966e+03
+1999  31269        SolarX   SXCH           NaN      0.021895  1.296468e+06
+
+[2000 rows x 6 columns]
+[2024-09-11T12:55:26.880+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:55:26.961+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T125525, end_date=20240911T125526
+[2024-09-11T12:55:26.988+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T12:55:26.997+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:00:43.130+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:00:43.165+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:00:43.178+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:00:43.178+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:00:43.205+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:00:43.216+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=61) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:00:43.217+0000] {standard_task_runner.py:63} INFO - Started process 70 to run task
+[2024-09-11T13:00:43.221+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpnd8jv01h']
+[2024-09-11T13:00:43.223+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:00:43.311+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host dca50a843999
+[2024-09-11T13:00:43.527+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:00:43.529+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:00:44.377+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:00:44.391+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56749.717806  3.273406e+10
+1  1027     Ethereum    ETH        NaN   2336.173709  1.390629e+10
+2   825  Tether USDt   USDT        NaN      0.999998  4.883066e+10
+3  1839          BNB    BNB        NaN    516.305051  1.469840e+09
+4  5426       Solana    SOL        NaN    132.123054  1.943437e+09
+[2024-09-11T13:00:44.399+0000] {python.py:237} INFO - Done. Returned value was:          id              name  symbol     marketcap         price     volume_24
+0         1           Bitcoin     BTC           NaN  56749.717806  3.273406e+10
+1      1027          Ethereum     ETH           NaN   2336.173709  1.390629e+10
+2       825       Tether USDt    USDT           NaN      0.999998  4.883066e+10
+3      1839               BNB     BNB           NaN    516.305051  1.469840e+09
+4      5426            Solana     SOL           NaN    132.123054  1.943437e+09
+...     ...               ...     ...           ...           ...           ...
+1995  15744             Prism   PRISM  1.317377e+06      0.000718  1.067636e+02
+1996  28481             SELO+    SELO  4.142437e+05      0.006930  3.152232e+04
+1997  15447              Lyra    LYRA  4.585791e+04      0.000706  4.759578e+00
+1998   6992  Spartan Protocol  SPARTA  4.097375e+05      0.004532  5.381837e+03
+1999   1107      PAC Protocol     PAC           NaN      0.000023  5.246446e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:00:44.421+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:00:44.645+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T130043, end_date=20240911T130044
+[2024-09-11T13:00:44.708+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:00:44.720+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:24:18.906+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:24:18.926+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:24:18.932+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:24:18.932+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:24:18.947+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:24:18.955+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=69) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:24:18.957+0000] {standard_task_runner.py:63} INFO - Started process 71 to run task
+[2024-09-11T13:24:18.957+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp9vkwhqlv']
+[2024-09-11T13:24:18.959+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:24:19.003+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host b7a81c69971f
+[2024-09-11T13:24:19.144+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:24:19.145+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:24:20.487+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:24:20.505+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  57004.926178  3.299164e+10
+1  1027     Ethereum    ETH        NaN   2340.745470  1.407210e+10
+2   825  Tether USDt   USDT        NaN      1.000372  4.916812e+10
+3  1839          BNB    BNB        NaN    519.228118  1.483498e+09
+4  5426       Solana    SOL        NaN    133.053590  1.969817e+09
+[2024-09-11T13:24:20.514+0000] {python.py:237} INFO - Done. Returned value was:          id                      name  ...         price     volume_24
+0         1                   Bitcoin  ...  57004.926178  3.299164e+10
+1      1027                  Ethereum  ...   2340.745470  1.407210e+10
+2       825               Tether USDt  ...      1.000372  4.916812e+10
+3      1839                       BNB  ...    519.228118  1.483498e+09
+4      5426                    Solana  ...    133.053590  1.969817e+09
+...     ...                       ...  ...           ...           ...
+1995  15388                     RIZON  ...      0.000181  1.715524e+02
+1996  15744                     Prism  ...      0.000718  1.067636e+02
+1997  15447                      Lyra  ...      0.000709  4.814587e+00
+1998  16913  Millonarios FC Fan Token  ...      0.072273  0.000000e+00
+1999   6992          Spartan Protocol  ...      0.004518  5.376431e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:24:20.550+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:24:20.653+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T132418, end_date=20240911T132420
+[2024-09-11T13:24:20.707+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:24:20.716+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:28:32.320+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:28:32.338+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:28:32.344+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:28:32.344+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:28:32.358+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:28:32.366+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:28:32.368+0000] {standard_task_runner.py:63} INFO - Started process 72 to run task
+[2024-09-11T13:28:32.368+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmph4n7ks4c']
+[2024-09-11T13:28:32.369+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:28:32.408+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 443ebfefdf45
+[2024-09-11T13:28:32.489+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:28:32.490+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:28:33.101+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:28:33.110+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  57011.987149  3.300820e+10
+1  1027     Ethereum    ETH        NaN   2342.430848  1.408764e+10
+2   825  Tether USDt   USDT        NaN      1.000056  4.918828e+10
+3  1839          BNB    BNB        NaN    519.138107  1.484287e+09
+4  5426       Solana    SOL        NaN    132.891936  1.971775e+09
+[2024-09-11T13:28:33.114+0000] {python.py:237} INFO - Done. Returned value was:          id                      name  ...         price     volume_24
+0         1                   Bitcoin  ...  57011.987149  3.300820e+10
+1      1027                  Ethereum  ...   2342.430848  1.408764e+10
+2       825               Tether USDt  ...      1.000056  4.918828e+10
+3      1839                       BNB  ...    519.138107  1.484287e+09
+4      5426                    Solana  ...    132.891936  1.971775e+09
+...     ...                       ...  ...           ...           ...
+1995  15388                     RIZON  ...      0.000181  1.715429e+02
+1996  15744                     Prism  ...      0.000718  1.067636e+02
+1997  15447                      Lyra  ...      0.000709  4.816454e+00
+1998  16913  Millonarios FC Fan Token  ...      0.072237  0.000000e+00
+1999   8484                  Olyverse  ...      0.000303  5.030998e+02
+
+[2000 rows x 6 columns]
+[2024-09-11T13:28:33.129+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:28:33.196+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T132832, end_date=20240911T132833
+[2024-09-11T13:28:33.224+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:28:33.232+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:36:50.920+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:36:50.946+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:36:50.953+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:36:50.954+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:36:50.977+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:36:50.988+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=64) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:36:50.990+0000] {standard_task_runner.py:63} INFO - Started process 68 to run task
+[2024-09-11T13:36:50.995+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpm__tq1y8']
+[2024-09-11T13:36:50.997+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask run_pipeline_task
+[2024-09-11T13:36:51.060+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 44e7a3c0e0e8
+[2024-09-11T13:36:51.197+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:36:51.198+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:36:54.670+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:36:54.693+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56506.001957  3.315192e+10
+1  1027     Ethereum    ETH        NaN   2326.629612  1.410961e+10
+2   825  Tether USDt   USDT        NaN      1.000337  4.937022e+10
+3  1839          BNB    BNB        NaN    516.589313  1.485910e+09
+4  5426       Solana    SOL        NaN    131.822420  1.979339e+09
+[2024-09-11T13:36:54.701+0000] {python.py:237} INFO - Done. Returned value was:          id              name  symbol     marketcap         price     volume_24
+0         1           Bitcoin     BTC           NaN  56506.001957  3.315192e+10
+1      1027          Ethereum     ETH           NaN   2326.629612  1.410961e+10
+2       825       Tether USDt    USDT           NaN      1.000337  4.937022e+10
+3      1839               BNB     BNB           NaN    516.589313  1.485910e+09
+4      5426            Solana     SOL           NaN    131.822420  1.979339e+09
+...     ...               ...     ...           ...           ...           ...
+1995  28481             SELO+    SELO  4.174184e+05      0.006983  3.182756e+04
+1996  15388             RIZON   ATOLO           NaN      0.000181  1.715814e+02
+1997  15744             Prism   PRISM  1.317377e+06      0.000718  1.067636e+02
+1998  15447              Lyra    LYRA  4.576236e+04      0.000704  4.786905e+00
+1999   6992  Spartan Protocol  SPARTA  4.089253e+05      0.004523  5.388932e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:36:54.750+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:36:54.832+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T133650, end_date=20240911T133654
+[2024-09-11T13:36:54.882+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:36:54.897+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:44:17.417+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:44:17.439+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:44:17.447+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:44:17.448+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:44:17.461+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:44:17.469+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:44:17.470+0000] {standard_task_runner.py:63} INFO - Started process 72 to run task
+[2024-09-11T13:44:17.471+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp47f13yt8']
+[2024-09-11T13:44:17.472+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:44:17.512+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 7e18285eb522
+[2024-09-11T13:44:17.605+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:44:17.606+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:44:18.629+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:44:18.642+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56440.546845  3.320705e+10
+1  1027     Ethereum    ETH        NaN   2317.173594  1.417426e+10
+2   825  Tether USDt   USDT        NaN      1.000068  4.953940e+10
+3  1839          BNB    BNB        NaN    515.183330  1.480554e+09
+4  5426       Solana    SOL        NaN    131.526560  1.994079e+09
+[2024-09-11T13:44:18.646+0000] {python.py:237} INFO - Done. Returned value was:          id              name  symbol     marketcap         price     volume_24
+0         1           Bitcoin     BTC           NaN  56440.546845  3.320705e+10
+1      1027          Ethereum     ETH           NaN   2317.173594  1.417426e+10
+2       825       Tether USDt    USDT           NaN      1.000068  4.953940e+10
+3      1839               BNB     BNB           NaN    515.183330  1.480554e+09
+4      5426            Solana     SOL           NaN    131.526560  1.994079e+09
+...     ...               ...     ...           ...           ...           ...
+1995  15388             RIZON   ATOLO           NaN      0.000181  1.716738e+02
+1996  28481             SELO+    SELO  4.148399e+05      0.006940  3.184777e+04
+1997  15744             Prism   PRISM  1.317377e+06      0.000718  1.067636e+02
+1998   6992  Spartan Protocol  SPARTA  4.091935e+05      0.004526  5.391188e+03
+1999   1107      PAC Protocol     PAC           NaN      0.000023  5.253807e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:44:18.660+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:44:18.726+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T134417, end_date=20240911T134418
+[2024-09-11T13:44:18.768+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:44:18.776+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:50:21.536+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:50:21.555+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:50:21.560+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:50:21.561+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:50:21.584+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:50:21.600+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=71) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:50:21.602+0000] {standard_task_runner.py:63} INFO - Started process 73 to run task
+[2024-09-11T13:50:21.602+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp4ki4gvvp']
+[2024-09-11T13:50:21.604+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:50:21.660+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 6014aebf3699
+[2024-09-11T13:50:21.741+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:50:21.742+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:50:22.484+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:50:22.506+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56276.172443  3.338543e+10
+1  1027     Ethereum    ETH        NaN   2317.623938  1.419349e+10
+2   825  Tether USDt   USDT        NaN      1.000436  4.963189e+10
+3  1839          BNB    BNB        NaN    515.333991  1.481440e+09
+4  5426       Solana    SOL        NaN    131.270076  1.994205e+09
+[2024-09-11T13:50:22.512+0000] {python.py:237} INFO - Done. Returned value was:          id              name  symbol     marketcap         price     volume_24
+0         1           Bitcoin     BTC           NaN  56276.172443  3.338543e+10
+1      1027          Ethereum     ETH           NaN   2317.623938  1.419349e+10
+2       825       Tether USDt    USDT           NaN      1.000436  4.963189e+10
+3      1839               BNB     BNB           NaN    515.333991  1.481440e+09
+4      5426            Solana     SOL           NaN    131.270076  1.994205e+09
+...     ...               ...     ...           ...           ...           ...
+1995  28481             SELO+    SELO  4.155222e+05      0.006951  3.197826e+04
+1996  15744             Prism   PRISM  1.317377e+06      0.000718  1.066659e+02
+1997   1107      PAC Protocol     PAC           NaN      0.000023  5.244150e+03
+1998   6992  Spartan Protocol  SPARTA  4.084630e+05      0.004518  5.375894e+03
+1999  15889    Metaverse Face    MEFA  4.079732e+05      0.000043  5.310477e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:50:22.527+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:50:22.637+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T135021, end_date=20240911T135022
+[2024-09-11T13:50:22.666+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:50:22.677+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T13:58:03.269+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T13:58:03.297+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:58:03.303+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T13:58:03.303+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T13:58:03.359+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T13:58:03.367+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T13:58:03.368+0000] {standard_task_runner.py:63} INFO - Started process 72 to run task
+[2024-09-11T13:58:03.368+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp5bnkjdki']
+[2024-09-11T13:58:03.370+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T13:58:03.426+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 75b3ed543dda
+[2024-09-11T13:58:03.517+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T13:58:03.518+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T13:58:04.500+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T13:58:04.509+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  55955.954900  3.385221e+10
+1  1027     Ethereum    ETH        NaN   2291.511785  1.428176e+10
+2   825  Tether USDt   USDT        NaN      1.000095  5.004313e+10
+3  1839          BNB    BNB        NaN    511.926235  1.483597e+09
+4  5426       Solana    SOL        NaN    129.972663  2.011667e+09
+[2024-09-11T13:58:04.514+0000] {python.py:237} INFO - Done. Returned value was:          id            name symbol     marketcap         price     volume_24
+0         1         Bitcoin    BTC           NaN  55955.954900  3.385221e+10
+1      1027        Ethereum    ETH           NaN   2291.511785  1.428176e+10
+2       825     Tether USDt   USDT           NaN      1.000095  5.004313e+10
+3      1839             BNB    BNB           NaN    511.926235  1.483597e+09
+4      5426          Solana    SOL           NaN    129.972663  2.011667e+09
+...     ...             ...    ...           ...           ...           ...
+1995  15889  Metaverse Face   MEFA  4.153903e+05      0.000044  5.457358e+03
+1996  28481           SELO+   SELO  4.148218e+05      0.006939  3.201760e+04
+1997  28748           ZELIX  ZELIX           NaN      0.000061  6.242652e+05
+1998  15744           Prism  PRISM  1.317666e+06      0.000718  1.086661e+02
+1999   1107    PAC Protocol    PAC           NaN      0.000023  5.229599e+03
+
+[2000 rows x 6 columns]
+[2024-09-11T13:58:04.528+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T13:58:04.595+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T135803, end_date=20240911T135804
+[2024-09-11T13:58:04.629+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T13:58:04.638+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T14:14:13.775+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T14:14:13.792+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:14:13.798+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:14:13.798+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T14:14:13.811+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T14:14:13.819+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=86) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T14:14:13.821+0000] {standard_task_runner.py:63} INFO - Started process 88 to run task
+[2024-09-11T14:14:13.822+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp63eps41p']
+[2024-09-11T14:14:13.826+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T14:14:13.887+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host bd1aa456b99d
+[2024-09-11T14:14:13.965+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T14:14:13.966+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T14:14:15.301+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T14:14:15.302+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_etl.py", line 42, in execute_pipeline_task
+    return run_pipeline()
+           ^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/crypto_data.py", line 36, in run_pipeline
+    df.replace([no.inf, -np.inf], np.nan, inplace=True) # Remplazar valores infinitos por valores nan, luego rellenar con 0
+                ^^
+NameError: name 'no' is not defined
+[2024-09-11T14:14:15.310+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T141413, end_date=20240911T141415
+[2024-09-11T14:14:15.324+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task run_pipeline_task (name 'no' is not defined; 88)
+[2024-09-11T14:14:15.365+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-11T14:14:15.375+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T14:19:08.653+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T14:19:08.680+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:19:08.687+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:19:08.688+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T14:19:08.712+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T14:19:08.723+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=62) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T14:19:08.724+0000] {standard_task_runner.py:63} INFO - Started process 71 to run task
+[2024-09-11T14:19:08.729+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpkgs86lj1']
+[2024-09-11T14:19:08.732+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T14:19:08.794+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 78c76c01cd49
+[2024-09-11T14:19:08.912+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T14:19:08.914+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T14:19:10.493+0000] {warnings.py:112} WARNING - /opt/***/dags/modules/crypto_data.py:36: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df.replace([np.inf, -np.inf], np.nan, inplace=True) # Remplazar valores infinitos por valores nan, luego rellenar con 0
+
+[2024-09-11T14:19:10.494+0000] {warnings.py:112} WARNING - /opt/***/dags/modules/crypto_data.py:37: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['marketcap'] = df['marketcap'].fillna(0).astype('int64')
+
+[2024-09-11T14:19:10.495+0000] {warnings.py:112} WARNING - /opt/***/dags/modules/crypto_data.py:38: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['volume_24'] = df['volume_24'].fillna(0).astype('int64')
+
+[2024-09-11T14:19:10.496+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T14:19:10.506+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price    volume_24
+0     1      Bitcoin    BTC          0  55713.791946  34174041133
+1  1027     Ethereum    ETH          0   2289.115855  14465696961
+2   825  Tether USDt   USDT          0      0.999903  50571940966
+3  1839          BNB    BNB          0    513.265791   1487795714
+4  5426       Solana    SOL          0    129.645239   2035904101
+[2024-09-11T14:19:10.515+0000] {python.py:237} INFO - Done. Returned value was:          id            name symbol  marketcap         price    volume_24
+0         1         Bitcoin    BTC          0  55713.791946  34174041133
+1      1027        Ethereum    ETH          0   2289.115855  14465696961
+2       825     Tether USDt   USDT          0      0.999903  50571940966
+3      1839             BNB    BNB          0    513.265791   1487795714
+4      5426          Solana    SOL          0    129.645239   2035904101
+...     ...             ...    ...        ...           ...          ...
+1995  15889  Metaverse Face   MEFA     415286      0.000044         5454
+1996  15744           Prism  PRISM    1317665      0.000718          108
+1997  28748           ZELIX  ZELIX          0      0.000060       621524
+1998  28481           SELO+   SELO     410031      0.006859        31608
+1999   1107    PAC Protocol    PAC          0      0.000023         5222
+
+[2000 rows x 6 columns]
+[2024-09-11T14:19:10.534+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T14:19:10.627+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T141908, end_date=20240911T141910
+[2024-09-11T14:19:10.694+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T14:19:10.708+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-11T14:35:25.786+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T14:35:25.803+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:35:25.809+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [queued]>
+[2024-09-11T14:35:25.809+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T14:35:25.824+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-10 00:00:00+00:00
+[2024-09-11T14:35:25.832+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=69) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T14:35:25.833+0000] {standard_task_runner.py:63} INFO - Started process 71 to run task
+[2024-09-11T14:35:25.833+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'scheduled__2024-09-10T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpiw6nhxm5']
+[2024-09-11T14:35:25.835+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_pipeline_task
+[2024-09-11T14:35:25.971+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task scheduled__2024-09-10T00:00:00+00:00 [running]> on host 292babb3e570
+[2024-09-11T14:35:26.120+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-10T00:00:00+00:00'
+[2024-09-11T14:35:26.121+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T14:35:26.856+0000] {warnings.py:112} WARNING - /opt/***/dags/modules/crypto_data.py:36: FutureWarning: DataFrame.replace without 'value' and with non-dict-like 'to_replace' is deprecated and will raise in a future version. Explicitly specify the new values instead.
+  df = df.replace([np.inf, -np.inf]) # Remplazar valores infinitos por valores nan, luego rellenar con 0
+
+[2024-09-11T14:35:26.863+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T14:35:26.872+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price    volume_24
+0     1      Bitcoin    BTC          0  55774.122989  34299149640
+1  1027     Ethereum    ETH          0   2289.248350  14570240254
+2   825  Tether USDt   USDT          0      0.999885  50706763285
+3  1839          BNB    BNB          0    511.798987   1489759522
+4  5426       Solana    SOL          0    129.446435   2028179566
+[2024-09-11T14:35:26.879+0000] {python.py:237} INFO - Done. Returned value was:          id          name symbol  marketcap         price    volume_24
+0         1       Bitcoin    BTC          0  55774.122989  34299149640
+1      1027      Ethereum    ETH          0   2289.248350  14570240254
+2       825   Tether USDt   USDT          0      0.999885  50706763285
+3      1839           BNB    BNB          0    511.798987   1489759522
+4      5426        Solana    SOL          0    129.446435   2028179566
+...     ...           ...    ...        ...           ...          ...
+1995  15744         Prism  PRISM    1311050      0.000714          109
+1996   1107  PAC Protocol    PAC          0      0.000023         5233
+1997  28748         ZELIX  ZELIX          0      0.000060       624268
+1998  24638        Nordek    NRK          0      0.000608       263275
+1999  28481         SELO+   SELO     407119      0.006810        31707
+
+[2000 rows x 6 columns]
+[2024-09-11T14:35:26.893+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T14:35:26.970+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=scheduled__2024-09-10T00:00:00+00:00, execution_date=20240910T000000, start_date=20240911T143525, end_date=20240911T143526
+[2024-09-11T14:35:27.034+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T14:35:27.042+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

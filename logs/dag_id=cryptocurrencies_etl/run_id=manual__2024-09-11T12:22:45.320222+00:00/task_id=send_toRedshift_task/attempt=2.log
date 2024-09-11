@@ -1,0 +1,45 @@
+[2024-09-11T12:27:58.829+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:27:58.883+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:27:58.902+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:27:58.903+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-09-11T12:27:59.437+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 12:22:45.320222+00:00
+[2024-09-11T12:27:59.451+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=64) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:27:59.459+0000] {standard_task_runner.py:63} INFO - Started process 71 to run task
+[2024-09-11T12:27:59.474+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'manual__2024-09-11T12:22:45.320222+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpw6g3ovda']
+[2024-09-11T12:27:59.476+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask send_toRedshift_task
+[2024-09-11T12:27:59.584+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [running]> on host 5d5990a4e51a
+[2024-09-11T12:27:59.874+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T12:22:45.320222+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-11T12:22:45.320222+00:00'
+[2024-09-11T12:27:59.876+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:28:00.936+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-11T12:28:01.094+0000] {toRedshift.py:75} ERROR - Error al insertar datos: invalid input syntax for integer: "BTC"
+
+[2024-09-11T12:28:01.094+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:28:01.095+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/toRedshift.py", line 71, in send_toRedshift_task
+    cursor.executemany(insert_query, data_tuples)
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for integer: "BTC"
+
+[2024-09-11T12:28:01.102+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=manual__2024-09-11T12:22:45.320222+00:00, execution_date=20240911T122245, start_date=20240911T122758, end_date=20240911T122801
+[2024-09-11T12:28:01.116+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 11 for task send_toRedshift_task (invalid input syntax for integer: "BTC"
+; 71)
+[2024-09-11T12:28:01.130+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-11T12:28:01.144+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-11T12:28:01.152+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

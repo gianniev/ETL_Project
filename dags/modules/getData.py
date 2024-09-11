@@ -1,4 +1,4 @@
-from requests import Request
+from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd

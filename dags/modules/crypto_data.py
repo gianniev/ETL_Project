@@ -1,5 +1,6 @@
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import pandas as pd
+import numpy as np
 import logging
 from dotenv import load_dotenv
 from modules.getData import fetch_crypto_data
@@ -28,7 +29,13 @@ def run_pipeline():
 
         # Renombrar columnas para mayor claridad
         df_filtered.columns = ['id', 'name', 'symbol', 'marketcap', 'price', 'volume_24']
+
         df = df_filtered.head(2000)
+
+        # Convertir los datos a int64
+        df = df.replace([np.inf, -np.inf]) # Remplazar valores infinitos por valores nan, luego rellenar con 0
+        df['marketcap'] = df['marketcap'].fillna(0).astype('int64')
+        df['volume_24'] = df['volume_24'].fillna(0).astype('int64')
 
         # Mostrar el DataFrame resultante
         num_rows = len(df_filtered)

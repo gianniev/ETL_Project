@@ -52,7 +52,7 @@ services:
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
     volumes:
-      - /workspaces/Entrega_DataEngineering/dags:/opt/airflow/dags
+      - /workspaces/Entega02/dags/modules
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 10s

@@ -1,0 +1,50 @@
+[2024-09-11T12:22:55.618+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:22:55.773+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:22:55.781+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:22:55.781+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T12:22:55.800+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 12:22:45.320222+00:00
+[2024-09-11T12:22:55.809+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=85) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:22:55.811+0000] {standard_task_runner.py:63} INFO - Started process 89 to run task
+[2024-09-11T12:22:55.811+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'manual__2024-09-11T12:22:45.320222+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp0uw3qqzn']
+[2024-09-11T12:22:55.813+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask send_toRedshift_task
+[2024-09-11T12:22:55.851+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task manual__2024-09-11T12:22:45.320222+00:00 [running]> on host 5d5990a4e51a
+[2024-09-11T12:22:55.927+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T12:22:45.320222+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-11T12:22:45.320222+00:00'
+[2024-09-11T12:22:55.928+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:22:56.044+0000] {toRedshift.py:74} ERROR - Error al insertar datos: name 'pyscopg2' is not defined
+[2024-09-11T12:22:56.044+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:22:56.045+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/modules/toRedshift.py", line 46, in send_toRedshift_task
+    conn = pyscopg2.connect(
+           ^^^^^^^^
+NameError: name 'pyscopg2' is not defined. Did you mean: 'psycopg2'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/toRedshift.py", line 77, in send_toRedshift_task
+    cursor.close()
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'cursor' where it is not associated with a value
+[2024-09-11T12:22:56.065+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=manual__2024-09-11T12:22:45.320222+00:00, execution_date=20240911T122245, start_date=20240911T122255, end_date=20240911T122256
+[2024-09-11T12:22:56.091+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task send_toRedshift_task (cannot access local variable 'cursor' where it is not associated with a value; 89)
+[2024-09-11T12:22:56.149+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-11T12:22:56.187+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-11T12:22:56.197+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

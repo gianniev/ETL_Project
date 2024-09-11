@@ -1,0 +1,39 @@
+[2024-09-11T12:22:49.643+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-11T12:22:49.693+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:22:49.706+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.run_pipeline_task manual__2024-09-11T12:22:45.320222+00:00 [queued]>
+[2024-09-11T12:22:49.706+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-11T12:22:49.728+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_pipeline_task> on 2024-09-11 12:22:45.320222+00:00
+[2024-09-11T12:22:49.739+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=70) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-11T12:22:49.743+0000] {standard_task_runner.py:63} INFO - Started process 74 to run task
+[2024-09-11T12:22:49.747+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'run_pipeline_task', 'manual__2024-09-11T12:22:45.320222+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpotz6ia_a']
+[2024-09-11T12:22:49.749+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask run_pipeline_task
+[2024-09-11T12:22:49.864+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.run_pipeline_task manual__2024-09-11T12:22:45.320222+00:00 [running]> on host 5d5990a4e51a
+[2024-09-11T12:22:49.981+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='run_pipeline_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T12:22:45.320222+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-11T12:22:45.320222+00:00'
+[2024-09-11T12:22:49.982+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-11T12:22:50.581+0000] {logging_mixin.py:188} INFO - La Api me extrae un total de filas de: 5000
+[2024-09-11T12:22:50.589+0000] {logging_mixin.py:188} INFO -      id         name symbol  marketcap         price     volume_24
+0     1      Bitcoin    BTC        NaN  56862.437715  3.162126e+10
+1  1027     Ethereum    ETH        NaN   2333.826941  1.354103e+10
+2   825  Tether USDt   USDT        NaN      1.000088  4.757098e+10
+3  1839          BNB    BNB        NaN    516.500591  1.456968e+09
+4  5426       Solana    SOL        NaN    132.117575  1.879618e+09
+[2024-09-11T12:22:50.593+0000] {python.py:237} INFO - Done. Returned value was:          id                      name  ...         price     volume_24
+0         1                   Bitcoin  ...  56862.437715  3.162126e+10
+1      1027                  Ethereum  ...   2333.826941  1.354103e+10
+2       825               Tether USDt  ...      1.000088  4.757098e+10
+3      1839                       BNB  ...    516.500591  1.456968e+09
+4      5426                    Solana  ...    132.117575  1.879618e+09
+...     ...                       ...  ...           ...           ...
+1995  15388                     RIZON  ...      0.000180  1.790961e+02
+1996  15447                      Lyra  ...      0.000706  4.770372e+00
+1997  15889            Metaverse Face  ...      0.000043  5.425053e+03
+1998   6992          Spartan Protocol  ...      0.004510  5.363752e+03
+1999  16913  Millonarios FC Fan Token  ...      0.071754  0.000000e+00
+
+[2000 rows x 6 columns]
+[2024-09-11T12:22:50.608+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-11T12:22:50.690+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=run_pipeline_task, run_id=manual__2024-09-11T12:22:45.320222+00:00, execution_date=20240911T122245, start_date=20240911T122249, end_date=20240911T122250
+[2024-09-11T12:22:50.728+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-11T12:22:50.742+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
