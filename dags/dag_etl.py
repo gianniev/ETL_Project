@@ -61,17 +61,22 @@ with DAG(
         }
     ) 
     
-
-    # Task3 
+    # Task 3  
     load_data_task = PythonOperator(
         task_id="send_toRedshift_task",
         python_callable=send_toRedshift_task,
     )
 
+    # Task 4
+    send_email_task = PythonOperator(
+        task_id="mail_sender_task",
+        python_callable=None 
+    )
+
 
 
     # Definir las dependencias entre las tareas
-    run_pipeline_task >> create_table_task >> load_data_task 
+    run_pipeline_task >> create_table_task >> load_data_task >> send_email_task
 
 
 

@@ -649,3 +649,7 @@ dtype: int64
 [2024-09-11T14:35:32.724+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
 [2024-09-11T14:35:32.724+0000] {logging_mixin.py:188} INFO - Insert query:
 [2024-09-11T14:35:32.725+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T12:46:40.236+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T12:46:40.448+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-10T00:00:00+00:00 [running]>, dependency 'Task Instance State' FAILED: Task is in the 'running' state.
+[2024-09-12T12:46:40.449+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-10T00:00:00+00:00 [running]>, dependency 'Task Instance Not Running' FAILED: Task is in the running state
+[2024-09-12T12:46:40.457+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

@@ -14,9 +14,10 @@ def create_table_if_not_exists(conn):
     id INTEGER IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(250),
     symbol VARCHAR(64),
-    marketcap BIGINT,
+    marketcap FLOAT,
     price DECIMAL(20, 10), 
-    volume_24 BIGINT
+    volume_24 VARCHAR(250),
+    date TIMESTAMP
     ); """
     
     with conn.cursor() as cur:

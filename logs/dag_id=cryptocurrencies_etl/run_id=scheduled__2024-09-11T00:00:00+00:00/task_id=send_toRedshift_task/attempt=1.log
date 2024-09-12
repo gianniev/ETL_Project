@@ -1,0 +1,277 @@
+[2024-09-12T12:46:59.788+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T12:47:00.225+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T12:47:00.232+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T12:47:00.233+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T12:47:00.551+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T12:47:00.562+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=80) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T12:47:00.563+0000] {standard_task_runner.py:63} INFO - Started process 82 to run task
+[2024-09-12T12:47:00.567+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp6vxa7h5h']
+[2024-09-12T12:47:00.569+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask send_toRedshift_task
+[2024-09-12T12:47:00.747+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host 292babb3e570
+[2024-09-12T12:47:01.739+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T12:47:01.751+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T12:47:03.108+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T12:47:03.111+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap      int64
+price        float64
+volume_24      int64
+dtype: object
+[2024-09-12T12:47:03.114+0000] {logging_mixin.py:188} INFO - marketcap    18298253572
+volume_24    51369940907
+dtype: int64
+[2024-09-12T12:47:03.115+0000] {logging_mixin.py:188} INFO - marketcap    0
+volume_24    0
+dtype: int64
+[2024-09-12T12:47:03.380+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T12:47:03.380+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T12:47:03.381+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T12:52:03.543+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-12T12:52:03.544+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T12:52:03.554+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T124700, end_date=20240912T125203
+[2024-09-12T12:52:03.623+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-12T12:52:03.634+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T12:52:03.642+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-12T13:26:29.305+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T13:26:29.462+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:26:29.469+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:26:29.469+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T13:26:29.486+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T13:26:29.494+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=86) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T13:26:29.496+0000] {standard_task_runner.py:63} INFO - Started process 88 to run task
+[2024-09-12T13:26:29.496+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpzeylipou']
+[2024-09-12T13:26:29.498+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T13:26:29.535+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host d37aa32c659b
+[2024-09-12T13:26:29.611+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T13:26:29.612+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T13:26:30.263+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T13:26:30.265+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap      int64
+price        float64
+volume_24      int64
+dtype: object
+[2024-09-12T13:26:30.268+0000] {logging_mixin.py:188} INFO - marketcap    100000000
+volume_24    100000000
+dtype: int64
+[2024-09-12T13:26:30.270+0000] {logging_mixin.py:188} INFO - marketcap    0
+volume_24    0
+dtype: int64
+[2024-09-12T13:26:30.531+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T13:26:30.532+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T13:26:30.532+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T13:31:10.710+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-12T13:31:10.711+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T13:31:10.720+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T132629, end_date=20240912T133110
+[2024-09-12T13:31:10.748+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-12T13:31:10.761+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T13:31:10.770+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-12T13:38:35.380+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T13:38:35.556+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:38:35.562+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:38:35.563+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T13:38:35.577+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T13:38:35.585+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=93) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T13:38:35.587+0000] {standard_task_runner.py:63} INFO - Started process 95 to run task
+[2024-09-12T13:38:35.587+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp3x1lbk_g']
+[2024-09-12T13:38:35.589+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T13:38:35.635+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host da8fbe4d2ac8
+[2024-09-12T13:38:35.712+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T13:38:35.713+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T13:38:36.350+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T13:38:36.353+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap    float64
+price        float64
+volume_24    float64
+dtype: object
+[2024-09-12T13:38:36.358+0000] {logging_mixin.py:188} INFO - marketcap    1.842571e+10
+volume_24    5.109338e+10
+dtype: float64
+[2024-09-12T13:38:36.359+0000] {logging_mixin.py:188} INFO - marketcap    12.448412
+volume_24     0.000000
+dtype: float64
+[2024-09-12T13:38:36.619+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T13:38:36.619+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T13:38:36.619+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T13:38:36.791+0000] {toRedshift.py:81} ERROR - Error al insertar datos: bigint out of range
+
+[2024-09-12T13:38:36.792+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T13:38:36.792+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/toRedshift.py", line 77, in send_toRedshift_task
+    cursor.executemany(insert_query, df[['name', 'symbol', 'marketcap', 'price', 'volume_24']].values.tolist())
+psycopg2.errors.NumericValueOutOfRange: bigint out of range
+
+[2024-09-12T13:38:36.801+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T133835, end_date=20240912T133836
+[2024-09-12T13:38:36.816+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task send_toRedshift_task (bigint out of range
+; 95)
+[2024-09-12T13:38:36.844+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-12T13:38:36.857+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T13:38:36.863+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-12T13:46:14.929+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T13:46:15.133+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:46:15.140+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:46:15.140+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T13:46:15.156+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T13:46:15.165+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=85) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T13:46:15.166+0000] {standard_task_runner.py:63} INFO - Started process 87 to run task
+[2024-09-12T13:46:15.167+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpd3wqztt_']
+[2024-09-12T13:46:15.168+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T13:46:15.208+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host 2e20f8dbd9e9
+[2024-09-12T13:46:15.284+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T13:46:15.285+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T13:46:15.892+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T13:46:15.895+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap    float64
+price        float64
+volume_24    float64
+dtype: object
+[2024-09-12T13:46:15.899+0000] {logging_mixin.py:188} INFO - marketcap    1.843553e+10
+volume_24    5.103312e+10
+dtype: float64
+[2024-09-12T13:46:15.900+0000] {logging_mixin.py:188} INFO - marketcap    12.448412
+volume_24     0.000000
+dtype: float64
+[2024-09-12T13:46:16.163+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T13:46:16.163+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T13:46:16.163+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T13:51:09.420+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-12T13:51:09.421+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T13:51:09.428+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T134615, end_date=20240912T135109
+[2024-09-12T13:51:09.488+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-12T13:51:09.500+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T13:51:09.509+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-12T13:57:16.562+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T13:57:16.747+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:57:16.756+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T13:57:16.757+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T13:57:16.778+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T13:57:16.790+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=93) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T13:57:16.792+0000] {standard_task_runner.py:63} INFO - Started process 95 to run task
+[2024-09-12T13:57:16.792+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp3asydmvq']
+[2024-09-12T13:57:16.795+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T13:57:16.860+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host ad733c7c677a
+[2024-09-12T13:57:16.985+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T13:57:16.987+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T13:57:17.603+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T13:57:17.606+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap    float64
+price        float64
+volume_24    float64
+dtype: object
+[2024-09-12T13:57:17.609+0000] {logging_mixin.py:188} INFO - marketcap    1.835306e+10
+volume_24    5.064001e+10
+dtype: float64
+[2024-09-12T13:57:17.610+0000] {logging_mixin.py:188} INFO - marketcap    12.448412
+volume_24     0.000000
+dtype: float64
+[2024-09-12T13:57:17.903+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T13:57:17.904+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T13:57:17.904+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T14:00:47.687+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T14:00:47.885+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T14:00:47.891+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T14:00:47.891+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T14:00:47.907+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T14:00:47.915+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=78) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T14:00:47.916+0000] {standard_task_runner.py:63} INFO - Started process 80 to run task
+[2024-09-12T14:00:47.917+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpr814gwlq']
+[2024-09-12T14:00:47.919+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T14:00:47.961+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host d8d1ffe4d6d7
+[2024-09-12T14:00:48.060+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T14:00:48.062+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T14:00:48.648+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T14:00:48.650+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap    float64
+price        float64
+volume_24    float64
+dtype: object
+[2024-09-12T14:00:48.653+0000] {logging_mixin.py:188} INFO - marketcap    1.835160e+10
+volume_24    5.054818e+10
+dtype: float64
+[2024-09-12T14:00:48.654+0000] {logging_mixin.py:188} INFO - marketcap    12.448412
+volume_24     0.000000
+dtype: float64
+[2024-09-12T14:00:48.936+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T14:00:48.937+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T14:00:48.937+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T14:05:45.482+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-12T14:05:45.483+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T14:05:45.495+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T140047, end_date=20240912T140545
+[2024-09-12T14:05:45.550+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-12T14:05:45.568+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T14:05:45.575+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-12T14:13:26.088+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-12T14:13:26.255+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T14:13:26.261+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [queued]>
+[2024-09-12T14:13:26.262+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-12T14:13:26.276+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_toRedshift_task> on 2024-09-11 00:00:00+00:00
+[2024-09-12T14:13:26.284+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=101) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-12T14:13:26.285+0000] {standard_task_runner.py:63} INFO - Started process 103 to run task
+[2024-09-12T14:13:26.285+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'send_toRedshift_task', 'scheduled__2024-09-11T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp_p9hh6d0']
+[2024-09-12T14:13:26.287+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask send_toRedshift_task
+[2024-09-12T14:13:26.326+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.send_toRedshift_task scheduled__2024-09-11T00:00:00+00:00 [running]> on host 72036c5ee786
+[2024-09-12T14:13:26.402+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='send_toRedshift_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-11T00:00:00+00:00'
+[2024-09-12T14:13:26.403+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-12T14:13:27.023+0000] {logging_mixin.py:188} INFO - DataFrame types:
+[2024-09-12T14:13:27.025+0000] {logging_mixin.py:188} INFO - id             int64
+name          object
+symbol        object
+marketcap    float64
+price        float64
+volume_24    float64
+dtype: object
+[2024-09-12T14:13:27.027+0000] {logging_mixin.py:188} INFO - marketcap    1.839997e+10
+volume_24    4.996752e+10
+dtype: float64
+[2024-09-12T14:13:27.028+0000] {logging_mixin.py:188} INFO - marketcap    12.448412
+volume_24     0.000000
+dtype: float64
+[2024-09-12T14:13:27.292+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-12T14:13:27.293+0000] {logging_mixin.py:188} INFO - Insert query:
+[2024-09-12T14:13:27.293+0000] {logging_mixin.py:188} INFO - INSERT INTO gianni_ev93_coderhouse.coinmarketcap (name, symbol, marketcap, price, volume_24) VALUES (%s, %s, %s, %s, %s)
+[2024-09-12T14:18:13.223+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-12T14:18:13.224+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-12T14:18:13.232+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=send_toRedshift_task, run_id=scheduled__2024-09-11T00:00:00+00:00, execution_date=20240911T000000, start_date=20240912T141326, end_date=20240912T141813
+[2024-09-12T14:18:13.256+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-12T14:18:13.271+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-12T14:18:13.277+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

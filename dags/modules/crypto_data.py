@@ -21,6 +21,7 @@ def run_pipeline():
     if 'data' in data:
         # Proceso de normalización y conversión a DataFrame
         df = pd.json_normalize(data['data'])
+        print(df.head(2))
 
         # Filtrar las columnas necesarias
         columns_to_select = ['id', 'name', 'symbol', 'self_reported_market_cap', 'quote.USD.price', 'quote.USD.volume_24h']
@@ -33,10 +34,10 @@ def run_pipeline():
         df = df_filtered.head(2000)
 
         # Convertir los datos a int64
-        df = df.replace([np.inf, -np.inf]) # Remplazar valores infinitos por valores nan, luego rellenar con 0
-        df['marketcap'] = df['marketcap'].fillna(0).astype('int64')
-        df['volume_24'] = df['volume_24'].fillna(0).astype('int64')
-
+        #df = df.replace([np.inf, -np.inf]) # Remplazar valores infinitos por valores nan, luego rellenar con 0
+        #df['marketcap'] = df['marketcap'].replace([np.inf, -np.inf], np.nan).fillna(0).clip(upper=10**8).astype('int64')
+        #df['volume_24'] = df['volume_24'].replace([np.inf, -np.inf], np.nan).fillna(0).clip(upper=10**8).astype('int64')
+        
         # Mostrar el DataFrame resultante
         num_rows = len(df_filtered)
         num_rows2 = len(df)
