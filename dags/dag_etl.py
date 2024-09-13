@@ -8,6 +8,7 @@ from modules.crypto_data import run_pipeline
 from dotenv import load_dotenv
 #from modules import get_default_airflow_args
 from modules.toRedshift import create_table_if_not_exists, send_toRedshift_task
+from modules.email import send_email
 
 # Cargar las variables de entorno
 load_dotenv()
@@ -70,7 +71,8 @@ with DAG(
     # Task 4
     send_email_task = PythonOperator(
         task_id="mail_sender_task",
-        python_callable=None 
+        python_callable=send_email, 
+        provide_context=True
     )
 
 

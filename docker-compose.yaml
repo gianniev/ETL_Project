@@ -5,9 +5,14 @@ x-airflow-common:
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.9.2}
-  # build: .
+  #build: .
   environment:
     &airflow-common-env
+    AIRFLOW_VAR_SUBJECT_MAIL: 'Coinmarketcap Data'
+    AIRFLOW_VAR_EMAIL: 'gianni.coder.space@gmail.com'
+    AIRFLOW_VAR_EMAIL_PASSWORD: "${EMAIL_PASSWORD}"
+    AIRFLOW_VAR_TO_ADDRESS: 'gianni.ev93@gmail.com, daniel.indra92@gmail.com'
+
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
@@ -35,6 +40,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ./raw_data:/opt/airflow/raw_data
     - ./processed_data:/opt/airflow/processed_data
+    #- ./airflow.cfg:/opt/airflow/airflow.cfg
   env_file: .env
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

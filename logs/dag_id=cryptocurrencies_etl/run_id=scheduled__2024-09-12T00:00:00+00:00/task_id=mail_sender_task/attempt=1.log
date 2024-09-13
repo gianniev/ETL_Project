@@ -1,0 +1,197 @@
+[2024-09-13T13:40:48.693+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T13:40:49.455+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T13:40:49.463+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T13:40:49.464+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T13:40:49.495+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T13:40:49.528+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=139) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T13:40:49.530+0000] {standard_task_runner.py:63} INFO - Started process 148 to run task
+[2024-09-13T13:40:49.523+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp926mh3dr']
+[2024-09-13T13:40:49.540+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T13:40:49.657+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 7f4ad190a664
+[2024-09-13T13:40:49.945+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T13:40:49.946+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T13:40:50.034+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T13:40:50.034+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/email.py", line 7, in send_email
+    subject = context["var"]["value"].get("subject_mail")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/context.py", line 120, in get
+    return Variable.get(key, deserialize_json=self._deserialize_json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 143, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable subject_mail does not exist'
+[2024-09-13T13:40:50.063+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T134049, end_date=20240913T134050
+[2024-09-13T13:40:50.146+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 6 for task mail_sender_task ('Variable subject_mail does not exist'; 148)
+[2024-09-13T13:40:50.177+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-13T13:40:50.221+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T13:40:50.232+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T14:26:15.623+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T14:26:15.791+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:26:15.798+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:26:15.798+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T14:26:15.813+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T14:26:15.821+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=158) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T14:26:15.823+0000] {standard_task_runner.py:63} INFO - Started process 160 to run task
+[2024-09-13T14:26:15.823+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpzd659l_5']
+[2024-09-13T14:26:15.825+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T14:26:15.867+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 147180fbb65f
+[2024-09-13T14:26:15.956+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T14:26:15.958+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T14:26:17.127+0000] {logging_mixin.py:188} INFO - Email enviado correctamente.
+[2024-09-13T14:26:17.128+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T14:26:17.128+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T14:26:17.135+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T142615, end_date=20240913T142617
+[2024-09-13T14:26:17.162+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T14:26:17.176+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T14:26:17.181+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T14:51:43.662+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T14:51:43.828+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:51:43.834+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:51:43.834+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T14:51:43.850+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T14:51:43.858+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=139) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T14:51:43.860+0000] {standard_task_runner.py:63} INFO - Started process 141 to run task
+[2024-09-13T14:51:43.861+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpgpjmuc9p']
+[2024-09-13T14:51:43.863+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T14:51:43.908+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 5af51dfa0d20
+[2024-09-13T14:51:44.032+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T14:51:44.034+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T14:51:44.869+0000] {logging_mixin.py:188} INFO - Email enviado correctamente.
+[2024-09-13T14:51:44.870+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T14:51:44.871+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T14:51:44.878+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T145143, end_date=20240913T145144
+[2024-09-13T14:51:44.918+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T14:51:44.931+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T14:51:44.938+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T15:25:14.592+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T15:25:14.622+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:25:14.629+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:25:14.629+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T15:25:14.783+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T15:25:14.791+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=145) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T15:25:14.793+0000] {standard_task_runner.py:63} INFO - Started process 147 to run task
+[2024-09-13T15:25:14.793+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpac0j7er_']
+[2024-09-13T15:25:14.795+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T15:25:14.840+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host c20fb377a86c
+[2024-09-13T15:25:14.920+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T15:25:14.921+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T15:25:14.950+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T15:25:14.953+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/modules/email.py", line 7, in send_email
+    subject = context["var"]["value"].get("AIRFLOW_VAR_SUBJECT_MAIL")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/context.py", line 120, in get
+    return Variable.get(key, deserialize_json=self._deserialize_json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 143, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable AIRFLOW_VAR_SUBJECT_MAIL does not exist'
+[2024-09-13T15:25:14.965+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T152514, end_date=20240913T152514
+[2024-09-13T15:25:14.981+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 6 for task mail_sender_task ('Variable AIRFLOW_VAR_SUBJECT_MAIL does not exist'; 147)
+[2024-09-13T15:25:15.007+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-13T15:25:15.020+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T15:25:15.037+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T15:41:58.504+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T15:41:58.651+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:41:58.657+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:41:58.658+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T15:41:58.673+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T15:41:58.681+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=152) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T15:41:58.683+0000] {standard_task_runner.py:63} INFO - Started process 154 to run task
+[2024-09-13T15:41:58.683+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpe3j1bfl0']
+[2024-09-13T15:41:58.685+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T15:41:58.724+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 807a11ae8751
+[2024-09-13T15:41:58.829+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T15:41:58.831+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T15:41:59.579+0000] {logging_mixin.py:188} INFO - Email enviado correctamente.
+[2024-09-13T15:41:59.580+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T15:41:59.580+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T15:41:59.588+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T154158, end_date=20240913T154159
+[2024-09-13T15:41:59.625+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T15:41:59.638+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T15:41:59.646+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T17:18:59.849+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T17:18:59.995+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:19:00.004+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:19:00.005+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T17:19:00.024+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T17:19:00.032+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=160) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T17:19:00.033+0000] {standard_task_runner.py:63} INFO - Started process 162 to run task
+[2024-09-13T17:19:00.033+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpw3xl354x']
+[2024-09-13T17:19:00.035+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T17:19:00.075+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 5ae51f28489e
+[2024-09-13T17:19:00.167+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T17:19:00.168+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T17:19:01.110+0000] {logging_mixin.py:188} INFO - Email enviado correctamente.
+[2024-09-13T17:19:01.111+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T17:19:01.111+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T17:19:01.119+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T171859, end_date=20240913T171901
+[2024-09-13T17:19:01.174+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T17:19:01.187+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T17:19:01.194+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T17:34:54.276+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T17:34:54.296+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:34:54.302+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:34:54.302+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T17:34:54.442+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T17:34:54.450+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=150) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T17:34:54.452+0000] {standard_task_runner.py:63} INFO - Started process 152 to run task
+[2024-09-13T17:34:54.452+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'mail_sender_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp8fycenz7']
+[2024-09-13T17:34:54.454+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask mail_sender_task
+[2024-09-13T17:34:54.493+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.mail_sender_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host dc7963df54fa
+[2024-09-13T17:34:54.583+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='mail_sender_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T17:34:54.584+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T17:34:55.493+0000] {logging_mixin.py:188} INFO - Email enviado correctamente.
+[2024-09-13T17:34:55.494+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T17:34:55.494+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T17:34:55.505+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=mail_sender_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T173454, end_date=20240913T173455
+[2024-09-13T17:34:55.547+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T17:34:55.560+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-13T17:34:55.566+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

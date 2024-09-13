@@ -1,0 +1,140 @@
+[2024-09-13T13:35:51.445+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T13:35:51.628+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T13:35:51.636+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T13:35:51.636+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T13:35:51.656+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T13:35:51.664+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=76) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T13:35:51.666+0000] {standard_task_runner.py:63} INFO - Started process 78 to run task
+[2024-09-13T13:35:51.666+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpf24rtsfk']
+[2024-09-13T13:35:51.668+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T13:35:51.708+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 7f4ad190a664
+[2024-09-13T13:35:51.783+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T13:35:51.784+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T13:35:52.164+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T13:35:52.164+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T13:35:52.165+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T13:35:52.173+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T133551, end_date=20240913T133552
+[2024-09-13T13:35:52.203+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T13:35:52.221+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T14:21:30.407+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T14:21:30.552+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:21:30.558+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:21:30.558+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T14:21:30.572+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T14:21:30.580+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=84) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T14:21:30.582+0000] {standard_task_runner.py:63} INFO - Started process 86 to run task
+[2024-09-13T14:21:30.582+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpy8gynhef']
+[2024-09-13T14:21:30.584+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T14:21:30.622+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 147180fbb65f
+[2024-09-13T14:21:30.698+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T14:21:30.699+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T14:21:30.987+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T14:21:30.987+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T14:21:30.988+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T14:21:30.995+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T142130, end_date=20240913T142130
+[2024-09-13T14:21:31.036+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T14:21:31.057+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T14:46:59.138+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T14:46:59.384+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:46:59.396+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T14:46:59.396+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T14:46:59.440+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T14:46:59.451+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=68) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T14:46:59.452+0000] {standard_task_runner.py:63} INFO - Started process 77 to run task
+[2024-09-13T14:46:59.456+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpe8o2nj81']
+[2024-09-13T14:46:59.459+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T14:46:59.543+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 5af51dfa0d20
+[2024-09-13T14:46:59.692+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T14:46:59.693+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T14:46:59.982+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T14:46:59.983+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T14:46:59.983+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T14:46:59.994+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T144659, end_date=20240913T144659
+[2024-09-13T14:47:00.041+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T14:47:00.057+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T15:20:29.802+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T15:20:29.832+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:20:29.843+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:20:29.843+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T15:20:30.056+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T15:20:30.066+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=76) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T15:20:30.068+0000] {standard_task_runner.py:63} INFO - Started process 78 to run task
+[2024-09-13T15:20:30.072+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpl071c4jl']
+[2024-09-13T15:20:30.074+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T15:20:30.184+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host c20fb377a86c
+[2024-09-13T15:20:30.330+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T15:20:30.331+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T15:20:30.626+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T15:20:30.627+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T15:20:30.627+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T15:20:30.642+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T152029, end_date=20240913T152030
+[2024-09-13T15:20:30.693+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T15:20:30.702+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T15:37:00.153+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T15:37:00.316+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:37:00.322+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T15:37:00.322+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T15:37:00.342+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T15:37:00.350+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=79) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T15:37:00.352+0000] {standard_task_runner.py:63} INFO - Started process 81 to run task
+[2024-09-13T15:37:00.352+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpabr413u0']
+[2024-09-13T15:37:00.354+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T15:37:00.394+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 807a11ae8751
+[2024-09-13T15:37:00.497+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T15:37:00.498+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T15:37:00.779+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T15:37:00.779+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T15:37:00.780+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T15:37:00.787+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T153700, end_date=20240913T153700
+[2024-09-13T15:37:00.849+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T15:37:00.857+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T17:14:12.406+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T17:14:12.603+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:14:12.609+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:14:12.609+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T17:14:12.626+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T17:14:12.634+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=89) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T17:14:12.635+0000] {standard_task_runner.py:63} INFO - Started process 91 to run task
+[2024-09-13T17:14:12.635+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmp9apihb_y']
+[2024-09-13T17:14:12.637+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T17:14:12.679+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host 5ae51f28489e
+[2024-09-13T17:14:12.767+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T17:14:12.768+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T17:14:13.085+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T17:14:13.086+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T17:14:13.086+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T17:14:13.094+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T171412, end_date=20240913T171413
+[2024-09-13T17:14:13.134+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T17:14:13.143+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-09-13T17:29:48.297+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-13T17:29:48.472+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:29:48.478+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [queued]>
+[2024-09-13T17:29:48.478+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-09-13T17:29:48.496+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): create_table_task> on 2024-09-12 00:00:00+00:00
+[2024-09-13T17:29:48.504+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=75) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-13T17:29:48.506+0000] {standard_task_runner.py:63} INFO - Started process 77 to run task
+[2024-09-13T17:29:48.506+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cryptocurrencies_etl', 'create_table_task', 'scheduled__2024-09-12T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl.py', '--cfg-path', '/tmp/tmpa8cql_1j']
+[2024-09-13T17:29:48.508+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask create_table_task
+[2024-09-13T17:29:48.550+0000] {task_command.py:426} INFO - Running <TaskInstance: cryptocurrencies_etl.create_table_task scheduled__2024-09-12T00:00:00+00:00 [running]> on host dc7963df54fa
+[2024-09-13T17:29:48.627+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cryptocurrencies_etl' AIRFLOW_CTX_TASK_ID='create_table_task' AIRFLOW_CTX_EXECUTION_DATE='2024-09-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-12T00:00:00+00:00'
+[2024-09-13T17:29:48.628+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-13T17:29:48.909+0000] {logging_mixin.py:188} INFO - Table gianni_ev93_coderhouse.coinmarketcap is ready
+[2024-09-13T17:29:48.909+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-13T17:29:48.910+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-13T17:29:48.917+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cryptocurrencies_etl, task_id=create_table_task, run_id=scheduled__2024-09-12T00:00:00+00:00, execution_date=20240912T000000, start_date=20240913T172948, end_date=20240913T172948
+[2024-09-13T17:29:48.960+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-13T17:29:48.969+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
