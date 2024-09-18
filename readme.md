@@ -17,7 +17,7 @@ docker-compose up airflow-init
 ```bash
 docker-compose up
 ```
-*El puerto de la interface de Airflow es 8081. Desde mi PC, cuando la interface está lista me da error al ingresar al link, pero al volver a intentar se abre correctamente. Me pasa lo mismo luego de iniciar sesión, hay un error, pero al re abrir el link del puerto se entra correctamente. Aveces cuando se inicia el DAG desde Airflow también me da un error la interface,pero al re abrir la página todo se ejecuta correctamente. Yo creo que esto es un error de la interface de Airflow ya que en realidad todo funciona correctamente.*
+*El puerto de la interface de Airflow es 8081. Desde mi PC, cuando la interface está lista me da error '404 page not found' al ingresar al link, pero al volver a intentar se abre correctamente. Me pasa lo mismo luego de iniciar sesión, hay un error '404 page not found', pero al re abrir el link del puerto se entra correctamente. Aveces cuando se inicia el DAG desde Airflow también me da un error la interface, pero al re abrir la página todo se ejecuta correctamente. Yo creo que esto es un error de la interface de Airflow ya que en realidad todo funciona correctamente.*
 
 4. Para configurar el receptor del email que será enviado al finalizar el script, hay que ingresar a docker-compose.yaml y modificar la variable 
 'AIRFLOW_VAR_TO_ADDRESS'. Para enviar 1 correo solo dejar el correo entre comas ejemplo ('pablo@gmail.com'). Para agregar dos correos poner una coma y un espacio. Ejemplo ('pablo@gmail.com, juan@gmail.com')
