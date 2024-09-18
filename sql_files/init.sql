@@ -3,12 +3,13 @@ CREATE SCHEMA IF NOT EXISTS gianni_ev93_coderhouse;
 
 -- Create table in the specified schema
 CREATE TABLE IF NOT EXISTS gianni_ev93_coderhouse.coinmarketcap (
-    id SERIAL PRIMARY KEY,
+    id INTEGER IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(250),
     symbol VARCHAR(64),
-    marketcap INT,
-    price DECIMAL, 
-    volume_24 DECIMAL
+    marketcap FLOAT,
+    price DECIMAL(20, 10), 
+    volume_24 VARCHAR(250),
+    date TIMESTAMP
 );
 
 
